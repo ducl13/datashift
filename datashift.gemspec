@@ -22,8 +22,8 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_runtime_dependency 'rails', '>= 4.2', '~> 5.2'
-  s.add_runtime_dependency 'thor', '>= 0.19.0', '< 2.0'
-  s.add_runtime_dependency 'paperclip', '>= 4.3', '<= 6.0.0'
+  s.add_runtime_dependency 'thor', '>= 0.18', '<= 0.20.3'
+  s.add_runtime_dependency 'paperclip', '>= 4.3', '<= 6.1.0'
   s.add_runtime_dependency 'spreadsheet', '~> 1.1'
 
   s.add_dependency "rubyzip", ">= 1.3.0"
@@ -43,4 +43,5 @@ Gem::Specification.new do |s|
   # not required locally but travis chokes without this
   s.add_development_dependency 'listen', '~> 3'
 
+  s.add_runtime_dependency 'activestorage', '= 5.2.4.5'
 end
