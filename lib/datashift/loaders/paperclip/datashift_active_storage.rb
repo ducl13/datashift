@@ -76,6 +76,10 @@ module DataShift
 
       has_attached_file_attribute = options[:has_attached_file_name] ? options[:has_attached_file_name].to_sym : :attachment
 
+      unless File.exist?(attachment_path) && File.readable?(attachment_path)
+        attachment_path = "migration/images/products/large/default.jpg"
+      end
+
       attachment_file = get_file(attachment_path)
       filename = attachment_path.split('/').last
 
