@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = 'Comprehensive import/export tools between Excel/CSV & ActiveRecord Databases, Rails apps, and any Ruby project.'
   s.license     = 'MIT'
 
-  s.required_ruby_version = '~> 2'
+  s.required_ruby_version = '~> 3'
 
   s.required_rubygems_version = Gem::Requirement.new('>= 0') if s.respond_to? :required_rubygems_version=
 
@@ -22,8 +22,8 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_runtime_dependency 'rails', '>= 4.2'
-  s.add_runtime_dependency 'thor', '>= 0.19.0', '< 2.0'
-  s.add_runtime_dependency 'paperclip', '>= 4.3', '<= 6.0.0'
+  s.add_runtime_dependency 'thor', '>= 0.19.0', '<= 1.1.0'
+  s.add_runtime_dependency 'paperclip', '>= 4.3', '<= 6.1.0'
   s.add_runtime_dependency 'spreadsheet', '~> 1.1'
 
   s.add_dependency "rubyzip", ">= 1.3.0"
@@ -42,4 +42,5 @@ Gem::Specification.new do |s|
   # not required locally but travis chokes without this
   s.add_development_dependency 'listen', '~> 3'
 
+  s.add_runtime_dependency 'activestorage', '>= 6.1.4.1'
 end
