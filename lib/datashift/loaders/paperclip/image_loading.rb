@@ -5,7 +5,7 @@
 #
 # => Provides facilities for bulk uploading/exporting attachments provided by PaperClip
 # gem
-require 'datashift_paperclip'
+require 'datashift_active_storage'
 require 'attachment_loader'
 
 module DataShift
@@ -13,7 +13,7 @@ module DataShift
   module ImageLoading
 
     include DataShift::Logging
-    include DataShift::Paperclip
+    include DataShift::ActiveStorage
 
     # Note the paperclip attachment model defines the storage path via something like :
     #
@@ -29,7 +29,7 @@ module DataShift
     #
     #   :viewable_record
     #
-    def create_attachment(klass, attachment_path, record = nil, attach_to_record_field = nil, options = {})
+    def create_attachment(klass, owner, attachment_path, record = nil, attach_to_record_field = nil, options = {})
 
       logger.debug("ImageLoading::create_attachment on Class #{klass}")
 
@@ -40,7 +40,7 @@ module DataShift
 
       logger.debug("Adding Attachment for #{klass.inspect}")
 
-      attachment = create_paperclip_attachment(klass, attachment_path, attachment_options)
+      attachment = create_active_storage_attachment(klass, owner, attachment_path, attachment_options)
 
       if(attachment && attach_to_record_field)
         populator = DataShift::Populator.new
