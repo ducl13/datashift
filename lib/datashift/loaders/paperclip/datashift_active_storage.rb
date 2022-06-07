@@ -88,7 +88,7 @@ module DataShift
       paperclip_attributes.merge!(options[:attributes]) if options[:attributes]
 
       begin
-        logger.info("Create paperclip attachment on Class #{klass} - #{paperclip_attributes}")
+        logger.info("Create active storage attachment on Class #{klass} - #{paperclip_attributes}")
 
         #@attachment = klass.new(paperclip_attributes)
 
@@ -108,7 +108,7 @@ module DataShift
       else
         byebug
         
-        logger.error('Problem creating and saving Paperclip Attachment')
+        logger.error('Problem creating and saving ActiveStorage Attachment')
         logger.error(@attachment.errors.messages.inspect)
         raise CreateAttachmentFailed, 'PaperClip error - Problem saving Attachment'
       end
