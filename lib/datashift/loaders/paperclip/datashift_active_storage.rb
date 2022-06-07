@@ -110,7 +110,7 @@ module DataShift
         
         logger.error('Problem creating and saving ActiveStorage Attachment')
         logger.error(@attachment.errors.messages.inspect)
-        raise CreateAttachmentFailed, 'PaperClip error - Problem saving Attachment'
+        raise CreateAttachmentFailed, 'ActiveStorage error - Problem saving Attachment'
       end
     end
 
