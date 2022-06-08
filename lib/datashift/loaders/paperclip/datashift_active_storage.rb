@@ -102,7 +102,8 @@ module DataShift
         logger.error(e.backtrace.first)
         raise CreateAttachmentFailed, "Failed [#{e.message}] - Creating Attachment [#{attachment_path}] on #{klass}"
       ensure
-        attachment_file.close unless attachment_file.closed?
+        # Do not close file. Will cause issue with Rails 6
+        #attachment_file.close unless attachment_file.closed?
       end
       if @attachment.save
         logger.info("Success: Created Attachment #{@attachment.id} : #{@attachment.attachment_file_name}")
