@@ -6,12 +6,15 @@
 # Details::   Module containing common functionality for working with Paperclip attachments
 #
 require 'logging'
+require 'paperclip'
 
 module DataShift
 
   module ActiveStorage
 
     include DataShift::Logging
+
+    require 'paperclip/attachment_loader_active_storage'
 
     attr_accessor :attachment
 
